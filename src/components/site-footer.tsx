@@ -1,0 +1,3 @@
+import Link from "next/link";
+import { dictionaries, type Locale } from "@/lib/i18n";
+export function SiteFooter({ locale }: { locale: Locale }) { const t=dictionaries[locale]; return <footer className="footer"><div className="container footer-inner"><Link className="brand" href={`/${locale}`}><span className="brand-mark">n</span>nurlyhome</Link><span>© {new Date().getFullYear()} nurlyhome · {t.footer}</span><div className="footer-links"><Link href={`/${locale}/about`}>{t.about}</Link><Link href={`/${locale}/faq`}>{t.faq}</Link><Link href={`/${locale}/privacy`}>{t.privacy}</Link><Link href={`/${locale}/terms`}>{t.terms}</Link></div></div></footer>; }

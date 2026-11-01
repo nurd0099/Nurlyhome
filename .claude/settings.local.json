@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "monid": {
+      "command": "node",
+      "args": [
+        "./node_modules/@monid/mcp-server/bin/cli.js"
+      ]
+    }
+  }
+}
