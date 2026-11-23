@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 import { DormCard } from "@/components/dorm-card";
 import type { Dorm } from "@/lib/dorms";
 import { dictionaries, type Locale } from "@/lib/i18n";
+import { amenityOptions } from "@/lib/amenities";
 type CatalogInitial={city?:string;university?:string;gender?:string;maxPrice?:string;maxDistance?:string;minRating?:string;availableOnly?:boolean;capacity?:string;amenities?:string[];sort?:string;from?:string;to?:string};
-const amenityOptions=["Wi-Fi","Laundry","Kitchen","Study room","Security"];
-export function Catalog({dorms,locale,initial}:{dorms:Dorm[];locale:Locale;initial:CatalogInitial}){const t=dictionaries[locale];const pathname=usePathname();const [city,setCity]=useState(initial.city||"");const [university,setUniversity]=useState(initial.university||"");const [gender,setGender]=useState(initial.gender||"");const [maxPrice,setMaxPrice]=useState(initial.maxPrice||"");const [maxDistance,setMaxDistance]=useState(initial.maxDistance||"");const [minRating,setMinRating]=useState(initial.minRating||"");const [availableOnly,setAvailableOnly]=useState(initial.availableOnly||false);const [capacity,setCapacity]=useState(initial.capacity||"");const [amenities,setAmenities]=useState((initial.amenities||[]).filter(amenity=>amenityOptions.includes(amenity)));  const [sort, setSort] = useState(
+ export function Catalog({dorms,locale,initial}:{dorms:Dorm[];locale:Locale;initial:CatalogInitial}){const t=dictionaries[locale];const pathname=usePathname();const [city,setCity]=useState(initial.city||"");const [university,setUniversity]=useState(initial.university||"");const [gender,setGender]=useState(initial.gender||"");const [maxPrice,setMaxPrice]=useState(initial.maxPrice||"");const [maxDistance,setMaxDistance]=useState(initial.maxDistance||"");const [minRating,setMinRating]=useState(initial.minRating||"");const [availableOnly,setAvailableOnly]=useState(initial.availableOnly||false);const [capacity,setCapacity]=useState(initial.capacity||"");const [amenities,setAmenities]=useState((initial.amenities||[]).filter(amenity=>(amenityOptions as readonly string[]).includes(amenity)));  const [sort, setSort] = useState(
     ["price", "distance", "rating"].includes(initial.sort || "")
       ? initial.sort!
       : "rating"
